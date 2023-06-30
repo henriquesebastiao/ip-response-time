@@ -27,7 +27,6 @@ def generate_graph(range_tentativas: int):
             average_time = sum(times_this_host) / len(times_this_host)
 
             # Criando os gráficos para cada host
-            print(list_range_x, times_this_host)
             plt.plot(list_range_x, times_this_host)
             plt.title(f'Gráfico de {host}')
             plt.xlabel('Tentativa')
