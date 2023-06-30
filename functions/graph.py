@@ -27,12 +27,14 @@ def generate_graph(range_tentativas: int):
             average_time = sum(times_this_host) / len(times_this_host)
 
             # Criando os gráficos para cada host
-            plt.plot(list_range_x, times_this_host)
-            plt.title(f'Gráfico de {host}')
+            plt.plot(list_range_x, times_this_host, label=f'{host} ({average_time:.2f}ms)')
+            plt.title('Gráfico de tempo de resposta para os hosts')
             plt.xlabel('Tentativa')
             plt.ylabel('Time (ms)')
-            plt.legend([f'Média: {average_time:.2f}ms'])  # Média de tempo de resposta
             plt.grid(True)  # Adicionando a grade ao gráfico
-            plt.show()
 
             init_y += range_tentativas
+        plt.legend()  # Adicionando a legenda ao gráfico
+        plt.savefig('results.pdf', format='pdf', dpi=300)  # Salvando o gráfico em PDF
+
+

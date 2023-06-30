@@ -2,3 +2,4 @@
 .vscode
 tests.py
 results.csv
+results.pdf
