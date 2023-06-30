@@ -1,18 +1,10 @@
-from ping3 import ping
+from functions.ping import run_ping
+from functions.graph import generate_graph
 
 
-def run_ping(times: int = 100 ** 2, *target: str):
-    """
-    Function to perform the ping test on hosts entered by the user.
+if __name__ == '__main__':
+    targets = [x for x in input('Host(s): ').strip().split()]
+    times = int(input('N° Tentativas: '))
 
-    :param times: Number of times to perform the test (default: 100 ** 2)
-    :param target: Hosts to be tested
-    :return: Dictionary with the results of the tests
-    """
-    response_times = {}
-    for host in target:
-        response_times[host] = []
-        for time in range(times):
-            response_times[host].append(ping(host))
-
-    return response_times
+    run_ping(times, *targets)
+    generate_graph(times)
