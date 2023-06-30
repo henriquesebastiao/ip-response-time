@@ -14,13 +14,14 @@ def run_ping(times: int = 100 ** 2, *target: str):
         writer = csv.writer(file)
         result = {}
         for host in target:
+            print(f'Pinging {host}...')
             result[host] = []
             for time in range(times):
-                response_time = int(ping(host, unit='ms'))
-
-                if response_time is None:
+                try:
+                    response_time = int(ping(host, unit='ms'))
+                    # print(f'{host} -> {response_time}ms')
+                except TypeError:
                     response_time = 0
-
                 result[host].append(response_time)
                 writer.writerow([host, result[host][time]])
 
