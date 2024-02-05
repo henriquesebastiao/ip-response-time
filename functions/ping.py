@@ -1,13 +1,14 @@
 import csv
+
 from ping3 import ping
 
-GREEN = "\033[32m"
-RED = "\033[31m"
-YELLOW = "\033[33m"
+GREEN = '\033[32m'
+RED = '\033[31m'
+YELLOW = '\033[33m'
 END = '\033[0m'
 
 
-def run_ping(times: int = 100 ** 2, verbose: bool = False, *target: str):
+def run_ping(times: int = 100**2, verbose: bool = False, *target: str):
     """
     Function to perform the ping test on hosts entered by the user.
 
@@ -29,9 +30,13 @@ def run_ping(times: int = 100 ** 2, verbose: bool = False, *target: str):
                         response_time = 0  # Se o host não responder, o tempo de resposta é 0, ou seja, FAIL
                     if verbose:
                         if response_time < 100 and response_time != 0:
-                            print(f'Test {time + 1}: {YELLOW}{host}{END} {GREEN}OK{END} -> {response_time}ms')
+                            print(
+                                f'Test {time + 1}: {YELLOW}{host}{END} {GREEN}OK{END} -> {response_time}ms'
+                            )
                         else:
-                            print(f'Test {time + 1}: {YELLOW}{host}{END} {RED}FAIL{END} -> {response_time}ms')
+                            print(
+                                f'Test {time + 1}: {YELLOW}{host}{END} {RED}FAIL{END} -> {response_time}ms'
+                            )
                 except TypeError:
                     response_time = 0
                 result[host].append(response_time)

@@ -18,16 +18,22 @@ def generate_graph(range_tentativas: int):
 
         init_y = 0
         for host in hosts:
-            times = [int(x) for x in times]  # Convertendo os tempos de resposta para inteiros
+            times = [
+                int(x) for x in times
+            ]  # Convertendo os tempos de resposta para inteiros
             list_range_x = [x for x in range(1, range_tentativas + 1)]
 
             # Pegando os tempos de resposta desse host específico
-            times_this_host = times[init_y:init_y + range_tentativas]
+            times_this_host = times[init_y : init_y + range_tentativas]
             # Calculando a média de tempo de resposta desse host
             average_time = sum(times_this_host) / len(times_this_host)
 
             # Criando os gráficos para cada host
-            plt.plot(list_range_x, times_this_host, label=f'{host} ({average_time:.2f}ms)')
+            plt.plot(
+                list_range_x,
+                times_this_host,
+                label=f'{host} ({average_time:.2f}ms)',
+            )
             plt.title('Gráfico de tempo de resposta para os hosts')
             plt.xlabel('Tentativa')
             plt.ylabel('Time (ms)')
@@ -35,6 +41,6 @@ def generate_graph(range_tentativas: int):
 
             init_y += range_tentativas
         plt.legend()  # Adicionando a legenda ao gráfico
-        plt.savefig('results.pdf', format='pdf', dpi=300)  # Salvando o gráfico em PDF
-
-
+        plt.savefig(
+            'results.pdf', format='pdf', dpi=300
+        )  # Salvando o gráfico em PDF

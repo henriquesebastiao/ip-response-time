@@ -1,7 +1,7 @@
 import sys
-from functions.ping import run_ping
-from functions.graph import generate_graph
 
+from functions.graph import generate_graph
+from functions.ping import run_ping
 
 if __name__ == '__main__':
     # Verificando se o usuário quer ver os resultados de cada tentativa
