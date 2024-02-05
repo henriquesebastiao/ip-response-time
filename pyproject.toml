@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "dns-response-time"
+name = "ip-response-time"
 version = "0.1.0"
-description = "Uma ferramenta simples para testar os tempos de resposta ICMP para servidores de DNS"
+description = "Uma ferramenta simples para testar o tempo de resposta via ICMP ping para determinados endereços IP"
 authors = ["Henrique Sebastião <contato@henriquesebastiao.com>"]
 license = "MIT"
 readme = "README.md"
